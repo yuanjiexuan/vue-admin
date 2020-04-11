@@ -5,7 +5,7 @@ module.exports = {
   // 输出文件目录
   outputDir: process.env.NODE_ENV === "production" ? "dist" : "devdist",
   // eslint-loader 是否在保存的时候检查
-  lintOnSave: false,
+  lintOnSave: true,
   /**
    * webpack配置,see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
    **/
@@ -18,7 +18,7 @@ module.exports = {
       .options({         
         symbolId: "icon-[name]",         
         include: ["./src/icons"]       
-      });  
+      });    
   },
   configureWebpack: (config) => {
     config.resolve = { // 配置解析别名

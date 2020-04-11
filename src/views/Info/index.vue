@@ -1,5 +1,5 @@
 <template>
-    <div>kongzhitai</div>
+     <div>kongzhitai</div>
 </template>
 <script>
 export default {

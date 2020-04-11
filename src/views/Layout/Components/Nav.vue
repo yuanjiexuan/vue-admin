@@ -1,5 +1,6 @@
 <template>
   <div id="nav-wrap">
+    <img src="" alt="">
     <el-menu
       default-active="1-4-1"
       class="el-menu-vertical-demo"
@@ -11,26 +12,28 @@
       active-text-color="#fff"
       router
     >
-      <template v-for="(item,index) in routers">
+      <template v-for="(item, index) in routers">
         <el-submenu v-if="!item.hidden" :key="item.id" :index="index + ''">
           <!-- 一级菜单 -->
           <template slot="title">
-            <i :class="item.meta.icon"> </i>
+            <!-- <i :class="item.meta.icon"> </i> -->
+            <svg-icon :iconClass="item.name" className="menu font12" />
             <span slot="title">{{ item.meta.name }}</span>
           </template>
           <el-menu-item
             v-for="subItem in item.children"
             :key="subItem.id"
             :index="subItem.path"
-          >{{ subItem.meta.name }}</el-menu-item>
+          >
+            {{ subItem.meta.name }}
+          </el-menu-item>
         </el-submenu>
       </template>
     </el-menu>
-    <svg-icon iconClass="menu" className="menu"/>
   </div>
 </template>
 <script>
-import { ref, reactive, isref, toRefs, onMounted } from "@vue/composition-api";
+import { ref, reactive } from "@vue/composition-api";
 export default {
   name: "navMenu",
   setup(props, { root }) {
@@ -50,7 +53,6 @@ export default {
       isCollapse,
       handleOpen,
       handleClose,
-      isCollapse,
       routers
     };
   }
@@ -64,5 +66,9 @@ export default {
   width: 250px;
   height: 100vh;
   background: #344a5f;
+  svg {
+    font-size: 20px;
+    margin-right: 10px;
+  }
 }
 </style>
