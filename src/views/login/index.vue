@@ -270,7 +270,9 @@ export default {
           toggleMenu(menuTab[0]);
           clearCountDown();
         })
-        .catch(error => {});
+        .catch(error => {
+          console.log(error)
+        });
     }
     // 倒计时
     const countDown = number => {
@@ -315,7 +317,7 @@ export default {
     };
     onMounted(() => {
       //GetSms();
-      console.log("1313")
+      console.log("1313");
     });
   }
 };

@@ -19,7 +19,7 @@ export default {
     }
   }, //["iconClass","className"],
   setup(props) {
-    console.log(props.iconClass);
+    //console.log(props.iconClass);
     const msg = ref("afaf");
 
     const iconName = computed(() => `#icon-${props.iconClass}`);

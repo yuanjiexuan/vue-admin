@@ -1,6 +1,6 @@
 <template>
   <div id="header-wrap">
-    <div class="pull-left header-icon">
+    <div class="pull-left header-icon" @click="navMenuState">
       <svg-icon iconClass="Menu" class="Menu"></svg-icon>
     </div>
     <div class="pull-right">
@@ -15,7 +15,17 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  name: 'layoutHeader',
+  setup(props, { root }){
+    const navMenuState = () => {
+      root.$store.commit('SET_COLLAPSE')
+    }
+    return {
+      navMenuState
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
 @import "../../../styles/config.scss";
@@ -26,8 +36,19 @@ export default {};
   left: $navMenu;
   height: 75px;
   background-color: #ffffff;
-  -webkit-box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.1);
+  @include webkit(box-shadow, 0 3px 16px 0 rgba(0, 0, 0, 0.1) );
+  @include webkit(transition, all .3s ease 0s);
   line-height: 75px;
+}
+.open {
+  #header-wrap {
+    left: $navMenu;
+  }
+}
+.close {
+  #header-wrap {
+    left: $navMenuMin;
+  }
 }
 .header-icon {
   padding: 0 32px;
@@ -47,10 +68,14 @@ export default {};
   img {
     width: 50px;
     height: 50px;
-    border: 1px solid #ffffff;
+    // border: 1px solid #ffffff;
+    // border-radius: 50px;
+    // line-height: 75px;
+    // vertical-align: middle;
+    display: inline-block;
+    margin-bottom: -12px;
+    margin-right: 18px;
     border-radius: 50px;
-    line-height: 75px;
-    vertical-align: middle;
   }
 }
 </style>

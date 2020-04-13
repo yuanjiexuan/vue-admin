@@ -7,3 +7,21 @@
 li.el-submenu {
     &.is-active.is-opened .el-submenu__title { background-color: $mainColor !important; }
 }
+.close {
+  #nav-wrap { width: 64px; }
+  .logo img { width: 70%; }
+  .el-submenu {
+    &.is-opened {
+      > .el-submenu__title {
+        background-color: $mainColor !important;
+      }
+    }
+  }
+}
+.el-menu--vertical {
+  .el-menu { background-color: $mainColor; }
+  .el-menu-item { line-height: 56px;}
+  .el-menu-item:hover {
+    background-color: $mainColor !important;
+  }
+}
